@@ -124,51 +124,158 @@ function Home() {
         </div>
       </section>
 
+      <div className="relative overflow-hidden border-b border-border/70 py-4">
+        <div className="animate-marquee flex w-max gap-8 whitespace-nowrap">
+          {[...marqueeTech, ...marqueeTech].map((t, i) => (
+            <span
+              key={`${t}-${i}`}
+              className="text-sm tracking-[0.18em] text-muted-foreground uppercase"
+            >
+              {t} <span className="text-primary">•</span>
+            </span>
+          ))}
+        </div>
+      </div>
+
       <section className="mx-auto w-full max-w-6xl px-6 py-20">
-        <h2 className="font-display text-3xl tracking-tight">What I work with</h2>
+        <Reveal>
+          <h2 className="font-display text-3xl tracking-tight">What I work with</h2>
+        </Reveal>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {skillGroups.map((g) => (
-            <div key={g.title} className="shadow-soft rounded-2xl border border-border/70 bg-card p-6">
-              <h3 className="text-sm font-semibold tracking-wide uppercase text-primary">
-                {g.title}
-              </h3>
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {g.items.map((i) => (
-                  <li
-                    key={i}
-                    className="rounded-full bg-secondary px-3 py-1 text-xs text-secondary-foreground"
-                  >
-                    {i}
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {skillGroups.map((g, idx) => (
+            <Reveal key={g.title} delay={idx * 70}>
+              <div className="shadow-soft hover:shadow-lift h-full rounded-2xl border border-border/70 bg-card p-6 transition-all duration-300 hover:-translate-y-1">
+                <h3 className="text-sm font-semibold tracking-wide uppercase text-primary">
+                  {g.title}
+                </h3>
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {g.items.map((i) => (
+                    <li
+                      key={i}
+                      className="rounded-full bg-secondary px-3 py-1 text-xs text-secondary-foreground"
+                    >
+                      {i}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="relative overflow-hidden border-y border-border/70 bg-secondary/40">
+        <div
+          aria-hidden
+          className="bg-gradient-warm animate-float-slow pointer-events-none absolute top-10 right-0 size-72 rounded-full opacity-25 blur-3xl"
+        />
+        <div className="relative mx-auto w-full max-w-6xl px-6 py-20">
+          <Reveal>
+            <p className="text-xs font-semibold tracking-[0.22em] text-primary uppercase">
+              Spotlight
+            </p>
+            <h2 className="font-display mt-3 text-3xl tracking-tight">RUBBL — Australia</h2>
+          </Reveal>
+          <div className="mt-8 grid gap-6 md:grid-cols-[1.2fr_1fr]">
+            <Reveal>
+              <div className="glass-strong shadow-lift h-full rounded-3xl p-8">
+                <p className="text-muted-foreground">{projects[0].description}</p>
+                <ul className="mt-6 space-y-3">
+                  {projects[0].highlights?.map((h) => (
+                    <li key={h} className="flex gap-3 text-sm">
+                      <span className="mt-2 size-1.5 shrink-0 rounded-full bg-primary" />
+                      {h}
+                    </li>
+                  ))}
+                </ul>
+                <ul className="mt-7 flex flex-wrap gap-2">
+                  {projects[0].stack.map((s) => (
+                    <li
+                      key={s}
+                      className="rounded-full bg-secondary px-3 py-1 text-xs text-secondary-foreground"
+                    >
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+            <Reveal delay={120}>
+              <div className="glass shadow-soft h-full rounded-3xl p-8">
+                <h3 className="font-display text-xl">{projects[1].name}</h3>
+                <p className="mt-1 text-xs tracking-[0.18em] text-primary uppercase">
+                  {projects[1].kind}
+                </p>
+                <p className="mt-4 text-sm text-muted-foreground">{projects[1].description}</p>
+                <ul className="mt-6 space-y-3 text-sm">
+                  {projects[1].highlights?.map((h) => (
+                    <li key={h} className="flex gap-3">
+                      <span className="mt-2 size-1.5 shrink-0 rounded-full bg-accent" />
+                      {h}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-6xl px-6 py-20">
+        <Reveal>
+          <h2 className="font-display text-3xl tracking-tight">How I can help</h2>
+        </Reveal>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          {services.map((s, idx) => (
+            <Reveal key={s.title} delay={idx * 80}>
+              <div className="glass h-full rounded-2xl p-6 transition-transform duration-300 hover:-translate-y-1">
+                <h3 className="font-display text-lg">{s.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{s.body}</p>
+              </div>
+            </Reveal>
           ))}
         </div>
       </section>
 
       <section className="border-y border-border/70 bg-secondary/40">
         <div className="mx-auto w-full max-w-6xl px-6 py-20">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <h2 className="font-display text-3xl tracking-tight">Selected projects</h2>
-            <Link to="/projects" className="text-sm text-primary hover:underline">
-              All projects →
-            </Link>
-          </div>
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {projects.slice(0, 3).map((p) => (
-              <article
-                key={p.name}
-                className="shadow-soft rounded-2xl border border-border/70 bg-card p-6"
-              >
-                <p className="text-xs tracking-wide text-muted-foreground uppercase">{p.kind}</p>
-                <h3 className="font-display mt-2 text-xl">{p.name}</h3>
-                <p className="mt-3 text-sm text-muted-foreground">{p.description}</p>
-              </article>
+          <Reveal>
+            <h2 className="font-display text-3xl tracking-tight">How I work</h2>
+          </Reveal>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {howIWork.map((p, idx) => (
+              <Reveal key={p.step} delay={idx * 80}>
+                <div className="shadow-soft h-full rounded-2xl border border-border/70 bg-card p-6">
+                  <p className="font-display text-3xl text-primary">{p.step}</p>
+                  <h3 className="mt-3 font-medium">{p.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{p.body}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
+
+      <section className="mx-auto w-full max-w-6xl px-6 py-20">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <h2 className="font-display text-3xl tracking-tight">Selected projects</h2>
+          <Link to="/projects" className="text-sm text-primary hover:underline">
+            All projects →
+          </Link>
+        </div>
+        <div className="mt-8 grid gap-4 md:grid-cols-3">
+          {projects.slice(2, 5).map((p, idx) => (
+            <Reveal key={p.name} delay={idx * 80}>
+              <article className="shadow-soft hover:shadow-lift h-full rounded-2xl border border-border/70 bg-card p-6 transition-all duration-300 hover:-translate-y-1">
+                <p className="text-xs tracking-wide text-muted-foreground uppercase">{p.kind}</p>
+                <h3 className="font-display mt-2 text-xl">{p.name}</h3>
+                <p className="mt-3 text-sm text-muted-foreground">{p.description}</p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
 
       <section className="mx-auto w-full max-w-6xl px-6 py-20">
         <div className="flex flex-wrap items-end justify-between gap-4">
