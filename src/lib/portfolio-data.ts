@@ -64,6 +64,8 @@ export const experience = [
     points: [
       "Built AI-powered CRM features, integrating ChatGPT and WhatsApp APIs for real-time customer communication.",
       "Integrated Stripe and PayPal, including subscription flows and webhook-based payment verification.",
+      "Worked on RUBBL, an Australian rubbish-pickup booking platform: real-time chat over Node.js sockets, live driver location and hours tracking, and automatic order assignment to transporters.",
+      "Built a YOLO-based rubbish detection system to classify waste from images without manual inspection.",
       "Developed multiple web applications end-to-end with Laravel and Vue.js.",
     ],
   },
