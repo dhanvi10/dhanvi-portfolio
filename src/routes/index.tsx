@@ -32,6 +32,9 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
+  const rubbl = projects[0]!;
+  const yolo = projects[1]!;
+
   return (
     <>
       <section className="bg-gradient-subtle relative overflow-hidden border-b border-border/70">
@@ -179,9 +182,9 @@ function Home() {
           <div className="mt-8 grid gap-6 md:grid-cols-[1.2fr_1fr]">
             <Reveal>
               <div className="glass-strong shadow-lift h-full rounded-3xl p-8">
-                <p className="text-muted-foreground">{projects[0].description}</p>
+                <p className="text-muted-foreground">{rubbl.description}</p>
                 <ul className="mt-6 space-y-3">
-                  {projects[0].highlights?.map((h) => (
+                  {rubbl.highlights?.map((h) => (
                     <li key={h} className="flex gap-3 text-sm">
                       <span className="mt-2 size-1.5 shrink-0 rounded-full bg-primary" />
                       {h}
@@ -189,7 +192,7 @@ function Home() {
                   ))}
                 </ul>
                 <ul className="mt-7 flex flex-wrap gap-2">
-                  {projects[0].stack.map((s) => (
+                  {rubbl.stack.map((s) => (
                     <li
                       key={s}
                       className="rounded-full bg-secondary px-3 py-1 text-xs text-secondary-foreground"
@@ -202,13 +205,13 @@ function Home() {
             </Reveal>
             <Reveal delay={120}>
               <div className="glass shadow-soft h-full rounded-3xl p-8">
-                <h3 className="font-display text-xl">{projects[1].name}</h3>
+                <h3 className="font-display text-xl">{yolo.name}</h3>
                 <p className="mt-1 text-xs tracking-[0.18em] text-primary uppercase">
-                  {projects[1].kind}
+                  {yolo.kind}
                 </p>
-                <p className="mt-4 text-sm text-muted-foreground">{projects[1].description}</p>
+                <p className="mt-4 text-sm text-muted-foreground">{yolo.description}</p>
                 <ul className="mt-6 space-y-3 text-sm">
-                  {projects[1].highlights?.map((h) => (
+                  {yolo.highlights?.map((h) => (
                     <li key={h} className="flex gap-3">
                       <span className="mt-2 size-1.5 shrink-0 rounded-full bg-accent" />
                       {h}
