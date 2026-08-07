@@ -34,16 +34,34 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <>
-      <section className="bg-gradient-subtle border-b border-border/70">
-        <div className="mx-auto grid w-full max-w-6xl gap-12 px-6 py-20 md:grid-cols-[1.35fr_1fr] md:py-28">
+      <section className="bg-gradient-subtle relative overflow-hidden border-b border-border/70">
+        <div
+          aria-hidden
+          className="bg-gradient-warm animate-float-slow pointer-events-none absolute -top-28 -right-24 size-96 rounded-full opacity-40 blur-3xl"
+        />
+        <div
+          aria-hidden
+          className="bg-gradient-warm animate-float-slow pointer-events-none absolute -bottom-32 -left-20 size-80 rounded-full opacity-25 blur-3xl"
+          style={{ animationDelay: "2.5s" }}
+        />
+        <div className="relative mx-auto grid w-full max-w-6xl gap-12 px-6 py-20 md:grid-cols-[1.35fr_1fr] md:py-28">
           <div>
-            <p className="text-xs font-semibold tracking-[0.22em] text-primary uppercase">
+            <p className="animate-rise-in text-xs font-semibold tracking-[0.22em] text-primary uppercase">
               {profile.role}
             </p>
-            <h1 className="font-display mt-4 text-5xl leading-[1.05] tracking-tight sm:text-6xl">
+            <h1
+              className="font-display animate-rise-in mt-4 text-5xl leading-[1.05] tracking-tight sm:text-6xl"
+              style={{ animationDelay: "90ms" }}
+            >
               {profile.name}
             </h1>
-            <p className="mt-5 max-w-xl text-lg text-muted-foreground">{profile.tagline}</p>
+            <p
+              className="animate-rise-in mt-5 max-w-xl text-lg text-muted-foreground"
+              style={{ animationDelay: "180ms" }}
+            >
+              {profile.tagline}
+            </p>
+
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 to="/projects"
