@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/site-shell";
+import { Reveal } from "@/components/reveal";
 import { projects } from "@/lib/portfolio-data";
+
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
