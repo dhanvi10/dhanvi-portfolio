@@ -1,6 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
-import { profile, projects, skillGroups, experience } from "@/lib/portfolio-data";
+import { Reveal } from "@/components/reveal";
+import {
+  profile,
+  projects,
+  skillGroups,
+  experience,
+  services,
+  process as howIWork,
+  marqueeTech,
+} from "@/lib/portfolio-data";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
