@@ -15,7 +15,16 @@ export const profile = {
 export const skillGroups = [
   {
     title: "Backend",
-    items: ["Laravel", "PHP", "REST API Development", "MySQL", "Laravel Nova", "Cron Automation"],
+    items: [
+      "Laravel",
+      "PHP",
+      "Node.js",
+      "Socket.IO / Real-time",
+      "REST API Development",
+      "MySQL",
+      "Laravel Nova",
+      "Cron Automation",
+    ],
   },
   {
     title: "Frontend",
@@ -27,7 +36,13 @@ export const skillGroups = [
   },
   {
     title: "Automation & AI",
-    items: ["n8n Workflows", "IMAP Email Processing", "Python", "YOLO Object Detection"],
+    items: [
+      "n8n Workflows",
+      "IMAP Email Processing",
+      "Python",
+      "YOLO Object Detection",
+      "OpenCV",
+    ],
   },
   { title: "Tools & DevOps", items: ["Git", "SSH", "Ploi", "Postman"] },
 ];
@@ -161,4 +176,47 @@ export const languages = [
   { name: "Gujarati", level: 100 },
   { name: "Hindi", level: 95 },
   { name: "English", level: 80 },
+];
+
+export const services = [
+  {
+    title: "CRM & internal platforms",
+    body: "Custom CRMs with roles, pipelines, leave, payroll and reporting modules — built to be extended, not rewritten.",
+  },
+  {
+    title: "Real-time features",
+    body: "Chat, live tracking and notifications on Node.js sockets, wired cleanly into a Laravel backend.",
+  },
+  {
+    title: "API integrations",
+    body: "WhatsApp, Stripe, PayPal, Google Calendar/Maps, Zoho and ChatGPT — including webhooks and retries.",
+  },
+  {
+    title: "Automation & AI",
+    body: "Cron jobs, n8n workflows, IMAP parsing and computer-vision models that remove manual work.",
+  },
+];
+
+export const process = [
+  { step: "01", title: "Understand", body: "Map the actual operation and the people using it before touching code." },
+  { step: "02", title: "Architect", body: "Modular Laravel structure, clean schema, predictable API contracts." },
+  { step: "03", title: "Build", body: "Ship in vertical slices so you can use and review features early." },
+  { step: "04", title: "Automate", body: "Replace the repetitive parts with jobs, webhooks and workflows." },
+];
+
+export const marqueeTech = [
+  "Laravel",
+  "Vue.js",
+  "Inertia.js",
+  "Node.js",
+  "Socket.IO",
+  "MySQL",
+  "Tailwind CSS",
+  "Stripe",
+  "WhatsApp API",
+  "Google Maps",
+  "ChatGPT API",
+  "YOLO",
+  "n8n",
+  "Python",
 ];
