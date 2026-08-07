@@ -79,12 +79,40 @@ export const education = [
 
 export const projects = [
   {
+    name: "RUBBL",
+    kind: "Australian Rubbish-Pickup Marketplace",
+    featured: true,
+    description:
+      "Australian on-demand rubbish removal platform where customers book a pickup and orders are auto-assigned to the right transporter. I built the real-time chat module on Node.js sockets, live driver location and working-hours tracking with zero manual entry, and the automated dispatch logic behind the whole operation.",
+    highlights: [
+      "Real-time customer ↔ driver chat built with Node.js + Socket.IO",
+      "Automatic order assignment to transporters based on availability and area",
+      "Live driver location tracking with automated hours/timesheet calculation",
+      "Operational dashboards for bookings, jobs, pricing and payouts",
+    ],
+    stack: ["Laravel", "Vue.js", "Node.js", "Socket.IO", "Google Maps API", "MySQL"],
+  },
+  {
+    name: "Rubbish Detection System",
+    kind: "Computer Vision / YOLO",
+    featured: true,
+    description:
+      "Object detection system built with a YOLO model to automatically identify and classify rubbish from images, so waste type and load size can be verified without manual inspection.",
+    highlights: [
+      "Trained and tuned a YOLO object-detection model on rubbish imagery",
+      "Detects and classifies waste items with bounding boxes and confidence scores",
+      "Python inference pipeline designed to plug into booking/verification flows",
+    ],
+    stack: ["Python", "YOLO", "OpenCV", "REST API"],
+  },
+  {
     name: "Recency CRM",
     kind: "AI CRM Platform",
     description:
       "Custom CRM integrating ChatGPT and WhatsApp APIs for real-time customer conversations, with automation workflows syncing user actions to Google Calendar.",
     stack: ["Laravel", "Vue.js", "ChatGPT API", "WhatsApp API"],
   },
+
   {
     name: "EVSpares",
     kind: "Automotive E-Commerce",
