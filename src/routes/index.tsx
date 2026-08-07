@@ -1,24 +1,161 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
+import { profile, projects, skillGroups, experience } from "@/lib/portfolio-data";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "Dhanvi Bhadiyadra — Laravel & Vue.js Developer Portfolio" },
+      {
+        name: "description",
+        content:
+          "Full-stack developer in Surat specialising in Laravel, Vue.js, API integrations and AI-powered CRM automation. Working professionally since Feb 2023.",
+      },
+      { property: "og:title", content: "Dhanvi Bhadiyadra — Laravel & Vue.js Developer" },
+      {
+        property: "og:description",
+        content: "CRMs, payment integrations and AI automations built with Laravel and Vue.js.",
+      },
+    ],
+  }),
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function Home() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <section className="bg-gradient-subtle border-b border-border/70">
+        <div className="mx-auto grid w-full max-w-6xl gap-12 px-6 py-20 md:grid-cols-[1.35fr_1fr] md:py-28">
+          <div>
+            <p className="text-xs font-semibold tracking-[0.22em] text-primary uppercase">
+              {profile.role}
+            </p>
+            <h1 className="font-display mt-4 text-5xl leading-[1.05] tracking-tight sm:text-6xl">
+              {profile.name}
+            </h1>
+            <p className="mt-5 max-w-xl text-lg text-muted-foreground">{profile.tagline}</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                to="/projects"
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+              >
+                View my work <ArrowRight className="size-4" />
+              </Link>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-3 text-sm font-medium transition-colors hover:bg-secondary"
+              >
+                Get in touch
+              </Link>
+            </div>
+            <dl className="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-border/70 pt-6">
+              {[
+                { k: "3+ yrs", v: `Since ${profile.since}` },
+                { k: "20+", v: "Projects shipped" },
+                { k: "Laravel", v: "Core specialty" },
+              ].map((s) => (
+                <div key={s.k}>
+                  <dt className="font-display text-2xl">{s.k}</dt>
+                  <dd className="mt-1 text-xs text-muted-foreground">{s.v}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          <aside className="bg-gradient-warm shadow-lift relative overflow-hidden rounded-3xl p-8">
+            <div className="rounded-2xl bg-card/90 p-6 backdrop-blur">
+              <p className="font-display text-xl">Currently</p>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Freelance full-stack developer & Master's student in Generative AI at SRM
+                University.
+              </p>
+              <ul className="mt-6 space-y-3 text-sm">
+                <li className="flex items-center gap-3">
+                  <MapPin className="size-4 text-primary" /> {profile.location}
+                </li>
+                <li className="flex items-center gap-3">
+                  <Phone className="size-4 text-primary" />
+                  <a href={profile.phoneHref} className="hover:underline">
+                    {profile.phone}
+                  </a>
+                </li>
+                <li className="flex items-center gap-3">
+                  <Mail className="size-4 text-primary" />
+                  <a href={`mailto:${profile.email}`} className="break-all hover:underline">
+                    {profile.email}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-6xl px-6 py-20">
+        <h2 className="font-display text-3xl tracking-tight">What I work with</h2>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {skillGroups.map((g) => (
+            <div key={g.title} className="shadow-soft rounded-2xl border border-border/70 bg-card p-6">
+              <h3 className="text-sm font-semibold tracking-wide uppercase text-primary">
+                {g.title}
+              </h3>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {g.items.map((i) => (
+                  <li
+                    key={i}
+                    className="rounded-full bg-secondary px-3 py-1 text-xs text-secondary-foreground"
+                  >
+                    {i}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="border-y border-border/70 bg-secondary/40">
+        <div className="mx-auto w-full max-w-6xl px-6 py-20">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <h2 className="font-display text-3xl tracking-tight">Selected projects</h2>
+            <Link to="/projects" className="text-sm text-primary hover:underline">
+              All projects →
+            </Link>
+          </div>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {projects.slice(0, 3).map((p) => (
+              <article
+                key={p.name}
+                className="shadow-soft rounded-2xl border border-border/70 bg-card p-6"
+              >
+                <p className="text-xs tracking-wide text-muted-foreground uppercase">{p.kind}</p>
+                <h3 className="font-display mt-2 text-xl">{p.name}</h3>
+                <p className="mt-3 text-sm text-muted-foreground">{p.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-6xl px-6 py-20">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <h2 className="font-display text-3xl tracking-tight">Where I've worked</h2>
+          <Link to="/experience" className="text-sm text-primary hover:underline">
+            Full experience →
+          </Link>
+        </div>
+        <ul className="mt-8 divide-y divide-border/70">
+          {experience.map((e) => (
+            <li key={e.company} className="flex flex-wrap justify-between gap-2 py-5">
+              <div>
+                <p className="font-medium">{e.company}</p>
+                <p className="text-sm text-muted-foreground">{e.role}</p>
+              </div>
+              <p className="text-sm text-muted-foreground">{e.period}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </>
   );
 }
