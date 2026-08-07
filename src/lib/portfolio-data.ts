@@ -15,7 +15,16 @@ export const profile = {
 export const skillGroups = [
   {
     title: "Backend",
-    items: ["Laravel", "PHP", "REST API Development", "MySQL", "Laravel Nova", "Cron Automation"],
+    items: [
+      "Laravel",
+      "PHP",
+      "Node.js",
+      "Socket.IO / Real-time",
+      "REST API Development",
+      "MySQL",
+      "Laravel Nova",
+      "Cron Automation",
+    ],
   },
   {
     title: "Frontend",
@@ -27,7 +36,13 @@ export const skillGroups = [
   },
   {
     title: "Automation & AI",
-    items: ["n8n Workflows", "IMAP Email Processing", "Python", "YOLO Object Detection"],
+    items: [
+      "n8n Workflows",
+      "IMAP Email Processing",
+      "Python",
+      "YOLO Object Detection",
+      "OpenCV",
+    ],
   },
   { title: "Tools & DevOps", items: ["Git", "SSH", "Ploi", "Postman"] },
 ];
@@ -49,6 +64,8 @@ export const experience = [
     points: [
       "Built AI-powered CRM features, integrating ChatGPT and WhatsApp APIs for real-time customer communication.",
       "Integrated Stripe and PayPal, including subscription flows and webhook-based payment verification.",
+      "Worked on RUBBL, an Australian rubbish-pickup booking platform: real-time chat over Node.js sockets, live driver location and hours tracking, and automatic order assignment to transporters.",
+      "Built a YOLO-based rubbish detection system to classify waste from images without manual inspection.",
       "Developed multiple web applications end-to-end with Laravel and Vue.js.",
     ],
   },
@@ -77,7 +94,43 @@ export const education = [
   },
 ];
 
-export const projects = [
+export type Project = {
+  name: string;
+  kind: string;
+  description: string;
+  stack: string[];
+  featured?: boolean;
+  highlights?: string[];
+};
+
+export const projects: Project[] = [
+  {
+    name: "RUBBL",
+    kind: "Australian Rubbish-Pickup Marketplace",
+    featured: true,
+    description:
+      "Australian on-demand rubbish removal platform where customers book a pickup and orders are auto-assigned to the right transporter. I built the real-time chat module on Node.js sockets, live driver location and working-hours tracking with zero manual entry, and the automated dispatch logic behind the whole operation.",
+    highlights: [
+      "Real-time customer ↔ driver chat built with Node.js + Socket.IO",
+      "Automatic order assignment to transporters based on availability and area",
+      "Live driver location tracking with automated hours/timesheet calculation",
+      "Operational dashboards for bookings, jobs, pricing and payouts",
+    ],
+    stack: ["Laravel", "Vue.js", "Node.js", "Socket.IO", "Google Maps API", "MySQL"],
+  },
+  {
+    name: "Rubbish Detection System",
+    kind: "Computer Vision / YOLO",
+    featured: true,
+    description:
+      "Object detection system built with a YOLO model to automatically identify and classify rubbish from images, so waste type and load size can be verified without manual inspection.",
+    highlights: [
+      "Trained and tuned a YOLO object-detection model on rubbish imagery",
+      "Detects and classifies waste items with bounding boxes and confidence scores",
+      "Python inference pipeline designed to plug into booking/verification flows",
+    ],
+    stack: ["Python", "YOLO", "OpenCV", "REST API"],
+  },
   {
     name: "Recency CRM",
     kind: "AI CRM Platform",
@@ -85,6 +138,7 @@ export const projects = [
       "Custom CRM integrating ChatGPT and WhatsApp APIs for real-time customer conversations, with automation workflows syncing user actions to Google Calendar.",
     stack: ["Laravel", "Vue.js", "ChatGPT API", "WhatsApp API"],
   },
+
   {
     name: "EVSpares",
     kind: "Automotive E-Commerce",
@@ -133,4 +187,47 @@ export const languages = [
   { name: "Gujarati", level: 100 },
   { name: "Hindi", level: 95 },
   { name: "English", level: 80 },
+];
+
+export const services = [
+  {
+    title: "CRM & internal platforms",
+    body: "Custom CRMs with roles, pipelines, leave, payroll and reporting modules — built to be extended, not rewritten.",
+  },
+  {
+    title: "Real-time features",
+    body: "Chat, live tracking and notifications on Node.js sockets, wired cleanly into a Laravel backend.",
+  },
+  {
+    title: "API integrations",
+    body: "WhatsApp, Stripe, PayPal, Google Calendar/Maps, Zoho and ChatGPT — including webhooks and retries.",
+  },
+  {
+    title: "Automation & AI",
+    body: "Cron jobs, n8n workflows, IMAP parsing and computer-vision models that remove manual work.",
+  },
+];
+
+export const process = [
+  { step: "01", title: "Understand", body: "Map the actual operation and the people using it before touching code." },
+  { step: "02", title: "Architect", body: "Modular Laravel structure, clean schema, predictable API contracts." },
+  { step: "03", title: "Build", body: "Ship in vertical slices so you can use and review features early." },
+  { step: "04", title: "Automate", body: "Replace the repetitive parts with jobs, webhooks and workflows." },
+];
+
+export const marqueeTech = [
+  "Laravel",
+  "Vue.js",
+  "Inertia.js",
+  "Node.js",
+  "Socket.IO",
+  "MySQL",
+  "Tailwind CSS",
+  "Stripe",
+  "WhatsApp API",
+  "Google Maps",
+  "ChatGPT API",
+  "YOLO",
+  "n8n",
+  "Python",
 ];

@@ -2,6 +2,8 @@ import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import { Menu, X } from "lucide-react";
 import { profile } from "@/lib/portfolio-data";
+import { ThemeToggle } from "@/components/theme-toggle";
+
 
 const nav = [
   { to: "/", label: "Home" },
@@ -16,7 +18,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
 
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
-      <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur">
+      <header className="glass sticky top-0 z-50 border-x-0 border-t-0">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
           <Link to="/" className="font-display text-lg tracking-tight">
             Dhanvi<span className="text-primary">.</span>
@@ -35,19 +37,20 @@ export function SiteShell({ children }: { children: ReactNode }) {
             ))}
             <a
               href={`mailto:${profile.email}`}
-              className="rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+              className="rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-transform duration-300 hover:-translate-y-0.5 hover:opacity-90"
             >
               Hire me
             </a>
+            <ThemeToggle />
           </nav>
-          <button
-            aria-label="Toggle menu"
-            onClick={() => setOpen((v) => !v)}
-            className="md:hidden"
-          >
-            {open ? <X className="size-5" /> : <Menu className="size-5" />}
-          </button>
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle />
+            <button aria-label="Toggle menu" onClick={() => setOpen((v) => !v)}>
+              {open ? <X className="size-5" /> : <Menu className="size-5" />}
+            </button>
+          </div>
         </div>
+
         {open && (
           <nav className="flex flex-col gap-1 border-t border-border/70 px-6 py-3 md:hidden">
             {nav.map((item) => (
@@ -98,9 +101,24 @@ export function SiteShell({ children }: { children: ReactNode }) {
 export function PageHeader({ eyebrow, title, intro }: { eyebrow: string; title: string; intro?: string }) {
   return (
     <div className="mx-auto w-full max-w-6xl px-6 pt-16 pb-10">
-      <p className="text-xs font-semibold tracking-[0.22em] text-primary uppercase">{eyebrow}</p>
-      <h1 className="font-display mt-3 text-4xl leading-tight tracking-tight sm:text-5xl">{title}</h1>
-      {intro && <p className="mt-4 max-w-2xl text-muted-foreground">{intro}</p>}
+      <p className="animate-rise-in text-xs font-semibold tracking-[0.22em] text-primary uppercase">
+        {eyebrow}
+      </p>
+      <h1
+        className="font-display animate-rise-in mt-3 text-4xl leading-tight tracking-tight sm:text-5xl"
+        style={{ animationDelay: "80ms" }}
+      >
+        {title}
+      </h1>
+      {intro && (
+        <p
+          className="animate-rise-in mt-4 max-w-2xl text-muted-foreground"
+          style={{ animationDelay: "160ms" }}
+        >
+          {intro}
+        </p>
+      )}
     </div>
   );
 }
+
