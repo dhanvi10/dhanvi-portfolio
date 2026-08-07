@@ -37,7 +37,7 @@ function Projects() {
           <Reveal
             key={p.name}
             delay={(idx % 2) * 90}
-            className={p.featured ? "md:col-span-2" : undefined}
+            className={p.featured ? "md:col-span-2" : ""}
           >
             <article
               className={`flex h-full flex-col rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 ${
