@@ -3,7 +3,7 @@ import { Moon, Sun } from "lucide-react";
 
 type Theme = "light" | "dark";
 
-export const themeScript = `(function(){try{var t=localStorage.getItem("theme");if(!t){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.classList.toggle("dark",t==="dark");}catch(e){}})();`;
+export const themeScript = `(function(){try{var t=localStorage.getItem("theme");if(!t){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();`;
 
 export function ThemeToggle() {
   const [theme, setTheme] = useState<Theme>("light");
@@ -19,7 +19,7 @@ export function ThemeToggle() {
 
   useEffect(() => {
     if (!ready) return;
-    document.documentElement.classList.toggle("dark", theme === "dark");
+    document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
   }, [theme, ready]);
 

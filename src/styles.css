@@ -2,7 +2,7 @@
 @source "../src";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:is([data-theme="dark"] *));
 
 /*
  * Design system definition.
@@ -113,7 +113,7 @@
 }
 
 
-.dark {
+[data-theme="dark"] {
   --background: oklch(0.19 0.014 55);
   --foreground: oklch(0.955 0.012 80);
   --card: oklch(0.235 0.017 52);
