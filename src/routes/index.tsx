@@ -62,16 +62,20 @@ function Home() {
               {profile.tagline}
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div
+              className="animate-rise-in mt-8 flex flex-wrap gap-3"
+              style={{ animationDelay: "260ms" }}
+            >
               <Link
                 to="/projects"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+                className="group inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:opacity-90"
               >
-                View my work <ArrowRight className="size-4" />
+                View my work
+                <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-3 text-sm font-medium transition-colors hover:bg-secondary"
+                className="glass inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5"
               >
                 Get in touch
               </Link>
@@ -80,18 +84,19 @@ function Home() {
               {[
                 { k: "3+ yrs", v: `Since ${profile.since}` },
                 { k: "20+", v: "Projects shipped" },
-                { k: "Laravel", v: "Core specialty" },
-              ].map((s) => (
-                <div key={s.k}>
+                { k: "Real-time", v: "Sockets & tracking" },
+              ].map((s, idx) => (
+                <Reveal key={s.k} delay={idx * 90}>
                   <dt className="font-display text-2xl">{s.k}</dt>
                   <dd className="mt-1 text-xs text-muted-foreground">{s.v}</dd>
-                </div>
+                </Reveal>
               ))}
             </dl>
           </div>
 
-          <aside className="bg-gradient-warm shadow-lift relative overflow-hidden rounded-3xl p-8">
-            <div className="rounded-2xl bg-card/90 p-6 backdrop-blur">
+          <aside className="bg-gradient-warm shadow-lift grain relative overflow-hidden rounded-3xl p-8">
+            <div className="glass-strong relative z-10 rounded-2xl p-6">
+
               <p className="font-display text-xl">Currently</p>
               <p className="mt-2 text-sm text-muted-foreground">
                 Freelance full-stack developer & Master's student in Generative AI at SRM
