@@ -92,7 +92,16 @@ export const education = [
   },
 ];
 
-export const projects = [
+export type Project = {
+  name: string;
+  kind: string;
+  description: string;
+  stack: string[];
+  featured?: boolean;
+  highlights?: string[];
+};
+
+export const projects: Project[] = [
   {
     name: "RUBBL",
     kind: "Australian Rubbish-Pickup Marketplace",
