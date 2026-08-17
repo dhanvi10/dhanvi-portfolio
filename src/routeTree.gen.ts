@@ -13,7 +13,11 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ExperienceRouteImport } from './routes/experience'
+import { Route as FullStackDeveloperRouteImport } from './routes/full-stack-developer'
+import { Route as LaravelDeveloperRouteImport } from './routes/laravel-developer'
+import { Route as PhpDeveloperRouteImport } from './routes/php-developer'
 import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -35,9 +39,29 @@ const ExperienceRoute = ExperienceRouteImport.update({
   path: '/experience',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FullStackDeveloperRoute = FullStackDeveloperRouteImport.update({
+  id: '/full-stack-developer',
+  path: '/full-stack-developer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LaravelDeveloperRoute = LaravelDeveloperRouteImport.update({
+  id: '/laravel-developer',
+  path: '/laravel-developer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PhpDeveloperRoute = PhpDeveloperRouteImport.update({
+  id: '/php-developer',
+  path: '/php-developer',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProjectsRoute = ProjectsRouteImport.update({
   id: '/projects',
   path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -46,14 +70,22 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/experience': typeof ExperienceRoute
+  '/full-stack-developer': typeof FullStackDeveloperRoute
+  '/laravel-developer': typeof LaravelDeveloperRoute
+  '/php-developer': typeof PhpDeveloperRoute
   '/projects': typeof ProjectsRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/experience': typeof ExperienceRoute
+  '/full-stack-developer': typeof FullStackDeveloperRoute
+  '/laravel-developer': typeof LaravelDeveloperRoute
+  '/php-developer': typeof PhpDeveloperRoute
   '/projects': typeof ProjectsRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -61,14 +93,46 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/experience': typeof ExperienceRoute
+  '/full-stack-developer': typeof FullStackDeveloperRoute
+  '/laravel-developer': typeof LaravelDeveloperRoute
+  '/php-developer': typeof PhpDeveloperRoute
   '/projects': typeof ProjectsRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/experience' | '/projects'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/experience'
+    | '/full-stack-developer'
+    | '/laravel-developer'
+    | '/php-developer'
+    | '/projects'
+    | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/experience' | '/projects'
-  id: '__root__' | '/' | '/about' | '/contact' | '/experience' | '/projects'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/experience'
+    | '/full-stack-developer'
+    | '/laravel-developer'
+    | '/php-developer'
+    | '/projects'
+    | '/sitemap.xml'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/experience'
+    | '/full-stack-developer'
+    | '/laravel-developer'
+    | '/php-developer'
+    | '/projects'
+    | '/sitemap.xml'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -76,7 +140,11 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   ExperienceRoute: typeof ExperienceRoute
+  FullStackDeveloperRoute: typeof FullStackDeveloperRoute
+  LaravelDeveloperRoute: typeof LaravelDeveloperRoute
+  PhpDeveloperRoute: typeof PhpDeveloperRoute
   ProjectsRoute: typeof ProjectsRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -109,11 +177,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ExperienceRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/full-stack-developer': {
+      id: '/full-stack-developer'
+      path: '/full-stack-developer'
+      fullPath: '/full-stack-developer'
+      preLoaderRoute: typeof FullStackDeveloperRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/laravel-developer': {
+      id: '/laravel-developer'
+      path: '/laravel-developer'
+      fullPath: '/laravel-developer'
+      preLoaderRoute: typeof LaravelDeveloperRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/php-developer': {
+      id: '/php-developer'
+      path: '/php-developer'
+      fullPath: '/php-developer'
+      preLoaderRoute: typeof PhpDeveloperRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projects': {
       id: '/projects'
       path: '/projects'
       fullPath: '/projects'
       preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -124,8 +220,22 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   ExperienceRoute: ExperienceRoute,
+  FullStackDeveloperRoute: FullStackDeveloperRoute,
+  LaravelDeveloperRoute: LaravelDeveloperRoute,
+  PhpDeveloperRoute: PhpDeveloperRoute,
   ProjectsRoute: ProjectsRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

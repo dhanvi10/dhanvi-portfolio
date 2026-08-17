@@ -7,19 +7,21 @@ import { projects } from "@/lib/portfolio-data";
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
-      { title: "Projects — Laravel, Vue.js & AI Builds by Dhanvi Bhadiyadra" },
+      { title: "Laravel & Vue.js Projects Portfolio | Dhanvi Bhadiyadra" },
       {
         name: "description",
         content:
-          "Project highlights: Recency CRM, EVSpares e-commerce, Talent UAE finance system, AI booking assistant, Nquiree, PPAY and an IMAP email processing system.",
+          "Laravel and Vue.js project portfolio: RUBBL marketplace, YOLO rubbish detection, Recency CRM, EVSpares e-commerce, Talent UAE finance system and PPAY payments.",
       },
-      { property: "og:title", content: "Projects — Dhanvi Bhadiyadra" },
+      { property: "og:title", content: "Laravel & Vue.js Projects — Dhanvi Bhadiyadra" },
       {
         property: "og:description",
         content:
           "CRMs, e-commerce platforms, payment modules and AI automations built with Laravel and Vue.js.",
       },
+      { property: "og:url", content: "https://dhanvi-portfolio.lovable.app/projects" },
     ],
+    links: [{ rel: "canonical", href: "https://dhanvi-portfolio.lovable.app/projects" }],
   }),
   component: Projects,
 });

@@ -15,18 +15,21 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Dhanvi Bhadiyadra — Laravel & Vue.js Developer Portfolio" },
+      { title: "Laravel & PHP Developer in Surat | Dhanvi Bhadiyadra" },
       {
         name: "description",
         content:
-          "Full-stack developer in Surat specialising in Laravel, Vue.js, API integrations and AI-powered CRM automation. Working professionally since Feb 2023.",
+          "Freelance Laravel, PHP and full-stack developer in Surat, India. 3+ years building CRMs, REST APIs, payment integrations and AI automation with Laravel and Vue.js.",
       },
-      { property: "og:title", content: "Dhanvi Bhadiyadra — Laravel & Vue.js Developer" },
+      { property: "og:title", content: "Laravel & PHP Developer in Surat | Dhanvi Bhadiyadra" },
       {
         property: "og:description",
-        content: "CRMs, payment integrations and AI automations built with Laravel and Vue.js.",
+        content:
+          "Freelance Laravel, PHP and Vue.js developer building CRMs, payment integrations and AI automations.",
       },
+      { property: "og:url", content: "https://dhanvi-portfolio.lovable.app/" },
     ],
+    links: [{ rel: "canonical", href: "https://dhanvi-portfolio.lovable.app/" }],
   }),
   component: Home,
 });
