@@ -88,7 +88,41 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { name: "author", content: "Dhanvi Bhadiyadra" },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Dhanvi Bhadiyadra" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Dhanvi Bhadiyadra",
+          url: "https://dhanvi-portfolio.lovable.app",
+          jobTitle: "Laravel & Vue.js Developer",
+          email: "mailto:dhanvibhadiyadra15@gmail.com",
+          telephone: "+918866638673",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Surat",
+            addressRegion: "Gujarat",
+            addressCountry: "IN",
+          },
+          sameAs: ["https://www.linkedin.com/in/dhanvi-bhadiyadara-634bbb205/"],
+          knowsAbout: [
+            "Laravel",
+            "PHP",
+            "Vue.js",
+            "Inertia.js",
+            "Node.js",
+            "MySQL",
+            "REST API development",
+            "Stripe",
+            "WhatsApp API",
+            "Generative AI",
+          ],
+        }),
+      },
     ],
     links: [
       {

@@ -10,7 +10,14 @@ const nav = [
   { to: "/about", label: "About" },
   { to: "/experience", label: "Experience" },
   { to: "/projects", label: "Projects" },
+  { to: "/laravel-developer", label: "Services" },
   { to: "/contact", label: "Contact" },
+] as const;
+
+const serviceLinks = [
+  { to: "/laravel-developer", label: "Laravel developer" },
+  { to: "/php-developer", label: "PHP developer" },
+  { to: "/full-stack-developer", label: "Full-stack developer" },
 ] as const;
 
 export function SiteShell({ children }: { children: ReactNode }) {
