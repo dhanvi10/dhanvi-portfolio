@@ -6,18 +6,20 @@ import { profile } from "@/lib/portfolio-data";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Dhanvi Bhadiyadra — Freelance Laravel Developer" },
+      { title: "Hire a Freelance Laravel Developer — Contact Dhanvi" },
       {
         name: "description",
         content:
-          "Get in touch with Dhanvi Bhadiyadra for Laravel, Vue.js, CRM and automation projects. Based in Surat, Gujarat and available for freelance work.",
+          "Get in touch with Dhanvi Bhadiyadra for Laravel, PHP, Vue.js, CRM and automation projects. Based in Surat, Gujarat and available for freelance work worldwide.",
       },
       { property: "og:title", content: "Contact Dhanvi Bhadiyadra" },
       {
         property: "og:description",
-        content: "Available for freelance Laravel, Vue.js and automation projects.",
+        content: "Available for freelance Laravel, PHP, Vue.js and automation projects.",
       },
+      { property: "og:url", content: "https://dhanvi-portfolio.lovable.app/contact" },
     ],
+    links: [{ rel: "canonical", href: "https://dhanvi-portfolio.lovable.app/contact" }],
   }),
   component: Contact,
 });

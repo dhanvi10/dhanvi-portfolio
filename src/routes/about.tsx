@@ -5,19 +5,21 @@ import { education, languages, profile, skillGroups } from "@/lib/portfolio-data
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Dhanvi Bhadiyadra — Full-Stack Developer in Surat" },
+      { title: "About — Laravel & Vue.js Developer | Dhanvi Bhadiyadra" },
       {
         name: "description",
         content:
-          "Background, education and skills of Dhanvi Bhadiyadra: Laravel, Vue.js, API integrations, automation and a Master's in Generative AI at SRM University.",
+          "Background, education and skills of Dhanvi Bhadiyadra: Laravel, PHP, Vue.js, API integrations, automation and a Master's in Generative AI at SRM University.",
       },
-      { property: "og:title", content: "About Dhanvi Bhadiyadra" },
+      { property: "og:title", content: "About Dhanvi Bhadiyadra — Laravel Developer" },
       {
         property: "og:description",
         content:
           "Laravel & Vue.js developer since Feb 2023, now studying Generative AI at SRM University.",
       },
+      { property: "og:url", content: "https://dhanvi-portfolio.lovable.app/about" },
     ],
+    links: [{ rel: "canonical", href: "https://dhanvi-portfolio.lovable.app/about" }],
   }),
   component: About,
 });

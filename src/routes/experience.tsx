@@ -5,11 +5,11 @@ import { experience } from "@/lib/portfolio-data";
 export const Route = createFileRoute("/experience")({
   head: () => ({
     meta: [
-      { title: "Experience — Dhanvi Bhadiyadra, Laravel Developer" },
+      { title: "Laravel Developer Experience — Dhanvi Bhadiyadra" },
       {
         name: "description",
         content:
-          "Professional experience of Dhanvi Bhadiyadra at PlanicsDev Infotech, AR Team Software Solutions and as a freelance full-stack developer since February 2023.",
+          "Professional experience of Dhanvi Bhadiyadra at PlanicsDev Infotech, AR Team Software Solutions and as a freelance Laravel and PHP developer since February 2023.",
       },
       { property: "og:title", content: "Experience — Dhanvi Bhadiyadra" },
       {
@@ -17,7 +17,9 @@ export const Route = createFileRoute("/experience")({
         content:
           "Three years of Laravel and Vue.js work across agency, product and freelance roles.",
       },
+      { property: "og:url", content: "https://dhanvi-portfolio.lovable.app/experience" },
     ],
+    links: [{ rel: "canonical", href: "https://dhanvi-portfolio.lovable.app/experience" }],
   }),
   component: Experience,
 });
