@@ -79,6 +79,18 @@ export function SiteShell({ children }: { children: ReactNode }) {
       <main className="flex-1">{children}</main>
 
       <footer className="border-t border-border/70 bg-secondary/50">
+        <div className="mx-auto w-full max-w-6xl px-6 pt-8">
+          <p className="text-xs font-semibold tracking-[0.18em] text-primary uppercase">Services</p>
+          <ul className="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+            {serviceLinks.map((s) => (
+              <li key={s.to}>
+                <Link to={s.to} className="hover:text-foreground">
+                  {s.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-6 py-8 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {profile.name} — {profile.location}
